@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exciting form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        body {
+            font-family: "Quicksand", sans-serif;
+            background: #9ab1ab;
+            color: #fff;
+            margin: auto;
+            max-width: 420px;
+            padding: 2rem;
+        }
+
+        .wrap {
+            background: white;
+            padding: 1rem 2rem;
+            color: #57605f;
+        }
+
+        h1, p {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 0.1rem;
+        }
+
+        .form {
+            margin: 2rem auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        input, button {
+            border-radius: 5px;
+        }
+
+        input {
+            width: 100%;
+            border: lightgrey 1px solid;
+            padding: 10px;
+        }
+
+        .error {
+            text-align: left;
+            font-size: 0.75rem;
+            color: darkred;
+            visibility: hidden;
+        }
+
+        button {
+            background: #6c7975;
+            color: white;
+            font-size: 1rem;
+            display: block;
+            width: 100%;
+            margin-top: 3rem;
+            margin-bottom: 0.5rem;
+            padding: 10px;
+            border: none;
+        }
+
+        button:hover {
+            background: #9ab1ab
+        }
+
+        .terms-conditions {
+            font-size: 0.85rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: #6c7975;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h1>Exciting form</h1>
+    <p>Have an account? <a href="#">Sign in</a></p>
+    <form>
+        <div class="form">
+            <label for="full-name">Full name</label>
+            <input type="text" name="fullName" id="full-name" data-test="name"/>
+            <p id="name-error" class="error">Name can only contain letters</p>
+        </div>
+        <div class="form">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" data-test="email"/>
+            <p id="email-error" class="error">Enter a valid email</p>
+        </div>
+        <div class="form">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" data-test="pwd"/>
+        </div>
+        <div class="form">
+            <label for="confirm">Confirm password</label>
+            <input type="password" name="confirm" id="confirm" data-test="confirm-pwd"/>
+            <p id="password-error" class="error">Passwords do not match</p>
+        </div>
+        <button id="signup-btn" type="button" data-test="signup-btn" onclick="validateAll()">Sign Up</button>
+        <p class="terms-conditions">
+            By signing up, I agree with
+            <a href="#">Terms and Conditions</a>.
+        </p>
+    </form>
+</div>
+
+</body>
+<script>
+
+    function validateName() {
+        let fullName = document.querySelector("#full-name").value
+        document.querySelector("#name-error").style.visibility = (/^[A-Za-z ]*$/.test(fullName)) ? "hidden" : "visible"
+    }
+
+    function validateEmail() {
+        let email = document.querySelector("#email").value
+        let emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        document.querySelector("#email-error").style.visibility = (emailRegex.test(email.toLowerCase())) ? "hidden" : "visible"
+    }
+
+    function validatePassword() {
+        let password = document.querySelector("#password").value
+        let confirm = document.querySelector("#confirm").value
+        document.querySelector("#password-error").style.visibility = (password === confirm) ? "hidden" : "visible"
+    }
+
+    function validateAll() {
+        validateName()
+        validateEmail()
+        validatePassword()
+    }
+</script>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="TestDataGeneratorSettingsState">
+    <option name="userDefinedGenerators">
+      <list>
+        <CustomGeneratorSettings>
+          <option name="data">
+            <map>
+              <entry key="delimiter_key" value="" />
+              <entry key="postfix_key" value="" />
+              <entry key="prefix_key" value="" />
+              <entry key="template_key" value="$fullName,$email&#10;" />
+            </map>
+          </option>
+          <option name="name" value="full name, email" />
+          <option name="type" value="Multiple" />
+        </CustomGeneratorSettings>
+        <CustomGeneratorSettings>
+          <option name="data">
+            <map>
+              <entry key="delimiter_key" value="" />
+              <entry key="postfix_key" value="" />
+              <entry key="prefix_key" value="" />
+              <entry key="template_key" value="$name$positiveNumber,$email&#10;" />
+            </map>
+          </option>
+          <option name="name" value="name with digits, email" />
+          <option name="type" value="Multiple" />
+        </CustomGeneratorSettings>
+        <CustomGeneratorSettings>
+          <option name="data">
+            <map>
+              <entry key="delimiter_key" value="" />
+              <entry key="postfix_key" value="" />
+              <entry key="prefix_key" value="" />
+              <entry key="template_key" value="$password&#10;" />
+            </map>
+          </option>
+          <option name="name" value="passwords" />
+          <option name="type" value="Multiple" />
+        </CustomGeneratorSettings>
+      </list>
+    </option>
+  </component>
+</project>
